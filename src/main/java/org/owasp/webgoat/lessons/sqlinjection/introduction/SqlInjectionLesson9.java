@@ -72,17 +72,17 @@ public class SqlInjectionLesson9 extends AssignmentEndpoint {
     try (Connection connection = dataSource.getConnection()) {
       try {
         Statement statement = connection.createStatement(TYPE_SCROLL_SENSITIVE, CONCUR_UPDATABLE);
-        SqlInjectionLesson8.log(connection, query);
-        ResultSet results = statement.executeQuery(query);
-        var test = results.getRow() != 0;
-        if (results.getStatement() != null) {
-          if (results.first()) {
-            output.append(SqlInjectionLesson8.generateTable(results));
-          } else {
-            // no results
-            return failed(this).feedback("sql-injection.8.no.results").build();
-          }
-        }
+        // SqlInjectionLesson8.log(connection, query);
+        // ResultSet results = statement.executeQuery(query);
+        // var test = results.getRow() != 0;
+        // if (results.getStatement() != null) {
+        //   if (results.first()) {
+        //     output.append(SqlInjectionLesson8.generateTable(results));
+        //   } else {
+        //     // no results
+        return failed(this).feedback("sql-injection.8.no.results").build();
+          // }
+        // }
       } catch (SQLException e) {
         System.err.println(e.getMessage());
         return failed(this)
@@ -90,7 +90,7 @@ public class SqlInjectionLesson9 extends AssignmentEndpoint {
             .build();
       }
 
-      return checkSalaryRanking(connection, output);
+      // return checkSalaryRanking(connection, output);
 
     } catch (Exception e) {
       System.err.println(e.getMessage());
