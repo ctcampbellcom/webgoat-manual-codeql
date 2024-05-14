@@ -2,8 +2,6 @@ name: "Dependency Submission"
 
 on:
   push:
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
   submit-dependencies:
@@ -12,7 +10,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Setup JDK 17
       uses: actions/setup-java@v3
@@ -22,5 +20,5 @@ jobs:
         cache: 'maven'
 
     - name: Maven Dependency Tree Dependency Submission
-      uses: advanced-security/maven-dependency-submission-action@v2
+      uses: advanced-security/maven-dependency-submission-action@v4
 
